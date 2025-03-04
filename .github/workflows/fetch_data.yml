@@ -1,8 +1,8 @@
-name: Fetch API Data
+name: Fetch API Data Every 1 Minute
 
 on:
   schedule:
-    - cron: '*/1 * * * *'  # Runs every 5 minutes
+    - cron: '* * * * *'  # Runs every 1 minute
   workflow_dispatch:  # Allows manual run
 
 jobs:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v3  # Ensures repo files are available
+        uses: actions/checkout@v3
 
       - name: Set Up Python
         uses: actions/setup-python@v4
@@ -21,4 +21,4 @@ jobs:
         run: pip install requests
 
       - name: Run Script
-        run: python fetch_data.py  # This will now work!
+        run: python fetch_data.py
